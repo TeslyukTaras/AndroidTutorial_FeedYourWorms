@@ -17,6 +17,23 @@ class WormController {
     }
   }
   
+  void calculateIntersections(Worm[] worms, ArrayList<Food> foods) {
+    for (int i = 0; i < worms.length; i++) {
+      Worm worm = worms[i];
+
+      for (int j = 0; j < foods.size(); j++) {
+        Food food = foods.get(j);
+        float distance = sqrt((worm.sx[0] - food.x) * (worm.sx[0] - food.x) +
+          (worm.sy[0] - food.y) * (worm.sy[0] - food.y));
+        if (distance < food.radius) {
+          println("Consume food!");
+          food.consume();
+          worm.addSegment();
+        }
+      }
+    }
+  }
+  
   private void dragWorm(Worm worm, float millis) {
     float timeFrame = millis / 1000;
     float angle = getRightAngle(worm) + getAngleShift(worm, timeFrame);

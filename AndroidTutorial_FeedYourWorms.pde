@@ -22,6 +22,14 @@ void draw() {
   int timeDifference = currentTime - lastTime;
 
   wormController.moveWorms(worms, timeDifference);
+  wormController.calculateIntersections(worms, foods);
+
+  for (int i = 0; i< foods.size(); i++) {
+    if (foods.get(i).resource <=0) {
+      foods.remove(i);
+      break;
+    }
+  }
 
   for (int i = 0; i< worms.length; i++) {
     worms[i].drawWorm();
