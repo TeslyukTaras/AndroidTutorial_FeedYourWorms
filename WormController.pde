@@ -13,12 +13,18 @@ class WormController {
 
   private void dragWorm(Worm worm, float millis) {
     float timeFrame = millis / 1000;
-    float angle = getRightAngle(worm);
+    float angle = getRightAngle(worm) + getAngleShift(worm, timeFrame);
 
     float distance = timeFrame * VELOCITY;
     float nextX = worm.sx[0] + cos(angle) * distance;
     float nextY = worm.sy[0] + sin(angle) * distance;
     worm.drag(nextX, nextY);
+  }
+  
+  float getAngleShift(Worm worm, float timeFrame) {
+     float angleShift = PI * sin(worm.initialPeriod + 
+      ( (float) millis() / worm.wavePeriod)) * timeFrame;
+      return angleShift;
   }
 
   float getRightAngle(Worm worm) {
