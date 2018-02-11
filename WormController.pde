@@ -11,6 +11,12 @@ class WormController {
     this.worldSizeY = y;
   }
 
+  void moveWorms(Worm[] worms, float millis) {
+    for (int i = 0; i < worms.length; i++) {
+      dragWorm(worms[i], millis);
+    }
+  }
+  
   private void dragWorm(Worm worm, float millis) {
     float timeFrame = millis / 1000;
     float angle = getRightAngle(worm) + getAngleShift(worm, timeFrame);
