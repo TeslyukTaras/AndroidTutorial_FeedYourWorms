@@ -21,6 +21,22 @@ class Worm {
     sy[2] = sy[1] + sin(angle) * SEGMENT_LENGTH;
   }
 
+  void drag(float x, float y) {
+    sx[0] = x;
+    sy[0] = y;
+    for (int i=0; i < min(chainCount, sx.length-1); i++) {
+      dragSegment(i+1, sx[i], sy[i]);
+    }
+  }
+
+  private void dragSegment(int i, float xin, float yin) {
+    float dx = xin - sx[i];
+    float dy = yin - sy[i];
+    float angle = atan2(dy, dx);  
+    sx[i] = xin - cos(angle) * SEGMENT_LENGTH;
+    sy[i] = yin - sin(angle) * SEGMENT_LENGTH;
+  }
+
   void drawWorm() {
     for (int i=1; i < min(chainCount, sx.length-1); i++) {
       drawSegment(sx[i-1], sy[i-1], sx[i], sy[i], R, G, B);
