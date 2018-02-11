@@ -14,10 +14,11 @@ void setup() {
   }
   
   strokeWeight(STROKE_WIDTH);
+  setupBackground();
 }
 
 void draw() {
-  background(0);
+  setBackground();
   int currentTime = millis();
   int timeDifference = currentTime - lastTime;
 
