@@ -1,12 +1,15 @@
 final float SEGMENT_LENGTH = 20;
 final int MAX_CHAIN_COUNT = 30;
 final int INITIAL_CHAIN_COUNT = 3;
+final int CORNER_ROTATION_UNDEFINED = 0;
+final int CORNER_ROTATION_OX = 1;
+final int CORNER_ROTATION_OY = 2;
 
 class Worm {
   float[] sx = new float[MAX_CHAIN_COUNT];
   float[] sy = new float[MAX_CHAIN_COUNT];
-  
   int chainCount = INITIAL_CHAIN_COUNT;
+  int preferedCornerRotation = CORNER_ROTATION_UNDEFINED;
 
   int R = (int) random(128, 255);
   int G = (int)random(128, 255);
