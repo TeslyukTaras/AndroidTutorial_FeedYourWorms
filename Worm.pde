@@ -8,6 +8,8 @@ final int CORNER_ROTATION_OY = 2;
 class Worm {
   float[] sx = new float[MAX_CHAIN_COUNT];
   float[] sy = new float[MAX_CHAIN_COUNT];
+  float wavePeriod = random(2000, 5000);
+  float initialPeriod = random(-PI, PI);
   int chainCount = INITIAL_CHAIN_COUNT;
   int preferedCornerRotation = CORNER_ROTATION_UNDEFINED;
 
