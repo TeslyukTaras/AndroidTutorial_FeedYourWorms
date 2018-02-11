@@ -3,6 +3,7 @@ int WORM_COUNT = 50;
 
 Worm[] worms = new Worm[WORM_COUNT];
 WormController wormController = new WormController();
+ArrayList<Food> foods = new ArrayList<Food>();
 int lastTime = 0;
 
 void setup() {
@@ -26,5 +27,13 @@ void draw() {
     worms[i].drawWorm();
   }
 
+  for (int i=0; i<foods.size(); i++) {
+    foods.get(i).drawFood();
+  }
   lastTime = currentTime;
+}
+
+void mouseClicked() {
+  Food food = new Food(mouseX, mouseY);
+  foods.add(food);
 }
