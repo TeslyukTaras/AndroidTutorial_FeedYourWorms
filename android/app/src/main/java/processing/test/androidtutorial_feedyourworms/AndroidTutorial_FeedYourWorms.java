@@ -22,7 +22,7 @@ public class AndroidTutorial_FeedYourWorms extends PApplet {
         ;//додати у випадку Android
         wormController.setWorldSize(width, height);
         for (int i = 0; i < WORM_COUNT; i++) {
-            worms[i] = new Worm(this, (int) random(0, width), (int) random(0, height), random(-PI, PI));
+            worms[i] = new Worm(this);
         }
 
         strokeWeight(STROKE_WIDTH);
