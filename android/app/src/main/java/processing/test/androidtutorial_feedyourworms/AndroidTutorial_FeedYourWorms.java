@@ -68,12 +68,12 @@ public void mouseClicked() {
 }
 
 //розкоментувати у випадку Android
-//void touchStarted() {
-//  for (int i = 0; i < touches.length; i++) {
-//    Food food = new Food((int) touches[i].x, (int)touches[i].y);
-//    foods.add(food);
-//  }
-//}
+public void touchStarted() {
+  for (int i = 0; i < touches.length; i++) {
+    Food food = new Food((int) touches[i].x, (int)touches[i].y);
+    foods.add(food);
+  }
+}
 // backgroud colors
 float currR, currG, currB;
 float nextR, nextG, nextB;
